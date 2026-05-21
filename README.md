@@ -1,5 +1,5 @@
 # TransferParty
-A live ISO to transfer data off a computer using CopyParty
+A live ISO to transfer data off a computer using [CopyParty](https://github.com/9001/copyparty)
 
 # Setting up the Build Environment
 - install alpine standard on a computer or VM

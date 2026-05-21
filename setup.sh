@@ -7,14 +7,16 @@ fi
 
 if [ -f ".no-setup" ]; then
   # update script files only
-  echo ">>> copying profile scripts to aports"
+  echo ">>> copying transferparty data"
   cp data/* /home/build/aports/scripts
+  cp build.sh /home/build
 
   echo ">>> downloading copyparty"
   wget -O /home/build/copyparty-sfx.py https://github.com/9001/copyparty/releases/latest/download/copyparty-sfx.py
 
   chown build:build -R /home/build/aports/scripts
   chown build:build /home/build/copyparty-sfx.py
+  chown build:build /home/build/build.sh
   return
 fi
 
@@ -40,16 +42,16 @@ echo ">>> adding build user tmp dir"
 mkdir -pv /home/build/tmp
 echo "export TMPDIR=~/tmp" > /home/build/.profile
 
-# copy data to build user
-echo ">>> copying transferparty data"
-cp -R * /home/build
 
 # clone aports repo
 echo ">>> cloning aports repo"
 git clone --depth=1 https://github.com/alpinelinux/aports.git /home/build/aports
 
-echo ">>> copying profile scripts to aports"
+
+# copy data to build user
+echo ">>> copying transferparty data"
 cp data/* /home/build/aports/scripts
+cp build.sh /home/build
 
 # make sure build owns its files
 echo ">>> updating build ownership"

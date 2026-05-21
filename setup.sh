@@ -40,7 +40,7 @@ echo ">>> cloning aports repo"
 git clone --depth=1 https://github.com/alpinelinux/aports.git /home/build/aports
 
 echo ">>> copying profile scripts to aports"
-cp /home/build/data/* /aports/scripts
+cp /home/build/data/* /home/build/aports/scripts
 
 # make sure build owns its files
 echo ">>> updating build ownership"

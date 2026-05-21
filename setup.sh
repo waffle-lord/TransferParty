@@ -22,6 +22,10 @@ apk add neovim nano
 adduser build -D
 adduser build abuild
 
+# copy data to build user
+cp -R TransferParty/* /home/build
+chown build:build -R /home/build/
+
 # login to build user
 su - build
 

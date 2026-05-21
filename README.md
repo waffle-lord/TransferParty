@@ -10,6 +10,15 @@ git clone https://github.com/waffle-lord/TransferParty.git
 cd TransferParty
 ./setup.sh
 ```
+
+# Updating Profiles
+- pull this repo's changes
+- run `setup.sh` again
+```sh
+git pull
+./setup.sh
+```
+
 # Building TransferParty
 - login as the build user
 ```sh

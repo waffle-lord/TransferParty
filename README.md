@@ -11,7 +11,7 @@ cd TransferParty
 ./setup.sh
 ```
 
-# Updating Profiles
+# Updating
 - pull this repo's changes
 - run `setup.sh` again
 ```sh
@@ -24,7 +24,7 @@ git pull
 ```sh
 su - build
 ```
-- run the build script with the transferparty profile
+- run the build script
 ```sh
-./build transferparty
+./build
 ```

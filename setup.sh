@@ -1,5 +1,10 @@
 #!/bin/ash
 
+if [ $(whoami) == build ]; then
+  echo "don't run setup as build"
+  return
+fi
+
 if [ -f ".no-setup" ]; then
   # update script files only
   echo ">>> copying profile scripts to aports"

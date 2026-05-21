@@ -1,5 +1,6 @@
 #!/bin/ash
 
+# make sure we are running as build user
 if [ $(whoami) != "build" ]; then
   echo "must run build script as build user"
   echo "run: su - build"
@@ -7,11 +8,14 @@ if [ $(whoami) != "build" ]; then
 fi
 
 # if the signing keys don't exist, create them
-if [ ! -f ".abuild/build-*.rsa.pub" ]; then
+find /home/build/.abuild -maxdepth 1 -type f -name "build-*.rsa.pub" 2>/dev/null | grep -q .
+
+if [ $? != 0 ]; then
   echo ">>> generating signing keys"
   abuild-keygen -a -n -q
 fi
 
+# run build
 sh aports/scripts/mkimage.sh --tag edge \
   --outdir ~/iso \
   --arch x86_64 \

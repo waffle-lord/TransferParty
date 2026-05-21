@@ -7,7 +7,7 @@ profile_transferparty() {
 	kernel_addons="xtables-addons zfs"
 	boot_addons="amd-ucode intel-ucode"
 	initrd_ucode="/boot/amd-ucode.img /boot/intel-ucode.img"
-	apks="$apks"
+	apks="$apks python3 py3-pillow ffmpeg agetty wget"
 
 	local _k _a
 	for _k in $kernel_flavors; do
@@ -16,6 +16,6 @@ profile_transferparty() {
 			apks="$apks $_a-$_k"
 		done
 	done
-	apks="$apks linux-firmware linux-firmware-none"
+	apks="$apks linux-firmware"
   apkovl="aports/scripts/genapkovl-transferparty.sh"
 }

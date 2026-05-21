@@ -9,7 +9,12 @@ if [ -f ".no-setup" ]; then
   # update script files only
   echo ">>> copying profile scripts to aports"
   cp data/* /home/build/aports/scripts
-  chown build:build -R /home/build/aports/scripts/
+
+  echo ">>> downloading copyparty"
+  wget -O /home/build/copyparty-sfx.py https://github.com/9001/copyparty/releases/latest/download/copyparty-sfx.py
+
+  chown build:build -R /home/build/aports/scripts
+  chown build:build /home/build/copyparty-sfx.py
   return
 fi
 

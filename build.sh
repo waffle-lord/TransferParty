@@ -6,6 +6,12 @@ if [ $(whoami) != "build" ]; then
   return
 fi
 
+# if the signing keys don't exist, create them
+if [ ! -f ".abuild/build-*.rsa.pub" ]; then
+  echo ">>> generating signing keys"
+  abuild-keygen -a -n -q
+fi
+
 sh aports/scripts/mkimage.sh --tag edge \
   --outdir ~/iso \
   --arch x86_64 \

@@ -3,6 +3,7 @@
 if [ $(whoami) != "build" ]; then
   echo "must run build script as build user"
   echo "run: su - build"
+  return
 fi
 
 sh aports/scripts/mkimage.sh --tag edge \

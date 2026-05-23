@@ -52,8 +52,18 @@ wget
 EOF
 
 makefile root:root 0644 "$tmp"/etc/motd <<EOF
-Welcome to TransferParty
+
+> > > Welcome to TransferParty < < <
+
 EOF
+
+makefile root:root 0644 "$tmp"/root/.profile <<EOF
+echo ""
+echo "Hello, root
+echo ""
+EOF
+
+sed -i s@tty1::respawn:/sbin/getty\\ 38400\\ tty1@tty1::respawn:/sbin/agetty\\ \\-\\-autologin\\ root\\ tty1\\ linux@ /etc/inittab
 
 rc_add devfs sysinit
 rc_add dmesg sysinit

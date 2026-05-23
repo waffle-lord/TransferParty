@@ -44,6 +44,15 @@ EOF
 mkdir -p "$tmp"/etc/apk
 makefile root:root 0644 "$tmp"/etc/apk/world <<EOF
 alpine-base
+python3
+py3-pillow
+ffmpeg
+agetty
+wget
+EOF
+
+makefile root:root 0644 "$tmp"/etc/motd <<EOF
+Welcome to TransferParty
 EOF
 
 rc_add devfs sysinit

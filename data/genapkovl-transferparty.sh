@@ -51,13 +51,19 @@ agetty
 wget
 EOF
 
-makefile root:root 0644 "$tmp"/etc/motd <<EOF
-
-> > > Welcome to TransferParty < < <
-
-EOF
-
 makefile root:root 0644 "$tmp"/etc/profile <<EOF
+# banner
+purple="\033[0;35m"
+gray="\033[1;30m"
+reset="\033[0m"
+echo -e "${purple}████████${gray}╗${purple}██████${gray}╗  ${purple}█████${gray}╗ ${purple}███${gray}╗   ${purple}██${gray}╗${purple}███████${gray}╗${purple}███████${gray}╗${purple}███████${gray}╗${purple}██████${gray}╗ ${purple}██████${gray}╗  ${purple}█████${gray}╗ ${purple}██████${gray}╗ ${purple}████████${gray}╗${purple}██${gray}╗   ${purple}██${gray}╗${reset}"
+echo -e "${gray}╚══${purple}██${gray}╔══╝${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗${purple}████${gray}╗  ${purple}██${gray}║${purple}██${gray}╔════╝${purple}██${gray}╔════╝${purple}██${gray}╔════╝${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗╚══${purple}██${gray}╔══╝╚${purple}██${gray}╗ ${purple}██${gray}╔╝${reset}"
+echo -e "   ${purple}██${gray}║   ${purple}██████${gray}╔╝${purple}███████${gray}║${purple}██${gray}╔${purple}██${gray}╗ ${purple}██${gray}║${purple}███████${gray}╗${purple}█████${gray}╗  ${purple}█████${gray}╗  ${purple}██████${gray}╔╝${purple}██████${gray}╔╝${purple}███████${gray}║${purple}██████${gray}╔╝   ${purple}██${gray}║    ╚${purple}████${gray}╔╝ ${reset}"
+echo -e "   ${purple}██${gray}║   ${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}║${purple}██${gray}║╚${purple}██${gray}╗${purple}██${gray}║╚════${purple}██${gray}║${purple}██${gray}╔══╝  ${purple}██${gray}╔══╝  ${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔═══╝ ${purple}██${gray}╔══${purple}██${gray}║${purple}██${gray}╔══${purple}██${gray}╗   ${purple}██${gray}║     ${gray}╚${purple}██${gray}╔╝  ${reset}"
+echo -e "   ${purple}██${gray}║   ${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║ ╚${purple}████${gray}║${purple}███████${gray}║${purple}██${gray}║     ${purple}███████${gray}╗${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║     ${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║  ${purple}██${gray}║   ${purple}██${gray}║      ${purple}██${gray}║   ${reset}"
+echo -e "   ${gray}╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ${reset}"
+                                                                                                             
+
 # setup mount area
 mkdir /mnt/TransferParty
 cd /mnt/TransferParty
@@ -75,8 +81,8 @@ for p in $(ls /dev/sd??); do
 
 	echo " +++ mounting $p ..."
 	partitionName=$(echo ${$p##*/})
-	mkdir /mnt/TransferParty/$partitionName
-	mount $p /mnt/TransferParty/$partitionName
+	mkdir "/mnt/TransferParty/$partitionName"
+	mount "$p" "/mnt/TransferParty/$partitionName"
 done
 
 # run copyparty after 5 seconds

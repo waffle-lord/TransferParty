@@ -58,16 +58,15 @@ makefile root:root 0644 "$tmp"/etc/motd <<EOF
 EOF
 
 makefile root:root 0644 "$tmp"/etc/profile <<EOF
-#!/bin/ash
 # banner
-purple="\033[0;35m"
+acc="\033[0;36m"
 gray="\033[1;30m"
 reset="\033[0m"
-echo -e "${purple}████████${gray}╗${purple}██████${gray}╗  ${purple}█████${gray}╗ ${purple}███${gray}╗   ${purple}██${gray}╗${purple}███████${gray}╗${purple}███████${gray}╗${purple}███████${gray}╗${purple}██████${gray}╗ ${purple}██████${gray}╗  ${purple}█████${gray}╗ ${purple}██████${gray}╗ ${purple}████████${gray}╗${purple}██${gray}╗   ${purple}██${gray}╗${reset}"
-echo -e "${gray}╚══${purple}██${gray}╔══╝${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗${purple}████${gray}╗  ${purple}██${gray}║${purple}██${gray}╔════╝${purple}██${gray}╔════╝${purple}██${gray}╔════╝${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}╗╚══${purple}██${gray}╔══╝╚${purple}██${gray}╗ ${purple}██${gray}╔╝${reset}"
-echo -e "   ${purple}██${gray}║   ${purple}██████${gray}╔╝${purple}███████${gray}║${purple}██${gray}╔${purple}██${gray}╗ ${purple}██${gray}║${purple}███████${gray}╗${purple}█████${gray}╗  ${purple}█████${gray}╗  ${purple}██████${gray}╔╝${purple}██████${gray}╔╝${purple}███████${gray}║${purple}██████${gray}╔╝   ${purple}██${gray}║    ╚${purple}████${gray}╔╝ ${reset}"
-echo -e "   ${purple}██${gray}║   ${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔══${purple}██${gray}║${purple}██${gray}║╚${purple}██${gray}╗${purple}██${gray}║╚════${purple}██${gray}║${purple}██${gray}╔══╝  ${purple}██${gray}╔══╝  ${purple}██${gray}╔══${purple}██${gray}╗${purple}██${gray}╔═══╝ ${purple}██${gray}╔══${purple}██${gray}║${purple}██${gray}╔══${purple}██${gray}╗   ${purple}██${gray}║     ${gray}╚${purple}██${gray}╔╝  ${reset}"
-echo -e "   ${purple}██${gray}║   ${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║ ╚${purple}████${gray}║${purple}███████${gray}║${purple}██${gray}║     ${purple}███████${gray}╗${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║     ${purple}██${gray}║  ${purple}██${gray}║${purple}██${gray}║  ${purple}██${gray}║   ${purple}██${gray}║      ${purple}██${gray}║   ${reset}"
+echo -e "${acc}████████${gray}╗${acc}██████${gray}╗  ${acc}█████${gray}╗ ${acc}███${gray}╗   ${acc}██${gray}╗${acc}███████${gray}╗${acc}███████${gray}╗${acc}███████${gray}╗${acc}██████${gray}╗ ${acc}██████${gray}╗  ${acc}█████${gray}╗ ${acc}██████${gray}╗ ${acc}████████${gray}╗${acc}██${gray}╗   ${acc}██${gray}╗${reset}"
+echo -e "${gray}╚══${acc}██${gray}╔══╝${acc}██${gray}╔══${acc}██${gray}╗${acc}██${gray}╔══${acc}██${gray}╗${acc}████${gray}╗  ${acc}██${gray}║${acc}██${gray}╔════╝${acc}██${gray}╔════╝${acc}██${gray}╔════╝${acc}██${gray}╔══${acc}██${gray}╗${acc}██${gray}╔══${acc}██${gray}╗${acc}██${gray}╔══${acc}██${gray}╗${acc}██${gray}╔══${acc}██${gray}╗╚══${acc}██${gray}╔══╝╚${acc}██${gray}╗ ${acc}██${gray}╔╝${reset}"
+echo -e "   ${acc}██${gray}║   ${acc}██████${gray}╔╝${acc}███████${gray}║${acc}██${gray}╔${acc}██${gray}╗ ${acc}██${gray}║${acc}███████${gray}╗${acc}█████${gray}╗  ${acc}█████${gray}╗  ${acc}██████${gray}╔╝${acc}██████${gray}╔╝${acc}███████${gray}║${acc}██████${gray}╔╝   ${acc}██${gray}║    ╚${acc}████${gray}╔╝ ${reset}"
+echo -e "   ${acc}██${gray}║   ${acc}██${gray}╔══${acc}██${gray}╗${acc}██${gray}╔══${acc}██${gray}║${acc}██${gray}║╚${acc}██${gray}╗${acc}██${gray}║╚════${acc}██${gray}║${acc}██${gray}╔══╝  ${acc}██${gray}╔══╝  ${acc}██${gray}╔══${acc}██${gray}╗${acc}██${gray}╔═══╝ ${acc}██${gray}╔══${acc}██${gray}║${acc}██${gray}╔══${acc}██${gray}╗   ${acc}██${gray}║     ${gray}╚${acc}██${gray}╔╝  ${reset}"
+echo -e "   ${acc}██${gray}║   ${acc}██${gray}║  ${acc}██${gray}║${acc}██${gray}║  ${acc}██${gray}║${acc}██${gray}║ ╚${acc}████${gray}║${acc}███████${gray}║${acc}██${gray}║     ${acc}███████${gray}╗${acc}██${gray}║  ${acc}██${gray}║${acc}██${gray}║     ${acc}██${gray}║  ${acc}██${gray}║${acc}██${gray}║  ${acc}██${gray}║   ${acc}██${gray}║      ${acc}██${gray}║   ${reset}"
 echo -e "   ${gray}╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ${reset}"
                                                                                                              
 

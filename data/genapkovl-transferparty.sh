@@ -57,7 +57,7 @@ makefile root:root 0644 "$tmp"/etc/motd <<EOF
 
 EOF
 
-makefile root:root 0644 "$tmp"/root/profile <<EOF
+makefile root:root 0644 "$tmp"/etc/profile <<EOF
 cd /
 python3 /etc/copyparty-sfx.py
 EOF

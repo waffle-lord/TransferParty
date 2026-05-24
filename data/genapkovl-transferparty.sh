@@ -77,6 +77,7 @@ for p in $(ls /dev/sd??); do
 	partitionName=$(echo ${$p##*/})
 	mkdir /mnt/TransferParty/$partitionName
 	mount $p /mnt/TransferParty/$partitionName
+done
 
 # run copyparty after 5 seconds
 echo "Starting the party in 5 seconds ..."

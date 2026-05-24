@@ -51,7 +51,14 @@ agetty
 wget
 EOF
 
+makefile root:root 0644 "$tmp"/etc/motd <<EOF
+
+> > > Welcome to < < <
+
+EOF
+
 makefile root:root 0644 "$tmp"/etc/profile <<EOF
+#!/bin/ash
 # banner
 purple="\033[0;35m"
 gray="\033[1;30m"

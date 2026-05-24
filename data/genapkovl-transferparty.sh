@@ -65,7 +65,7 @@ cd /mnt/TransferParty
 # mount all the drives to our party folder, excluding our boot drive
 echo "getting drives ready"
 bootpartition=$(df /boot | grep "/dev/sd*" | awk '{print $1}')
-bootdrive=$(echo ${bootparition::-1})
+bootdrive=$(echo ${bootpartition::-1})
 
 for p in $(ls /dev/sd??); do
 	if [[ "$p" =~ "$bootdrive" ]]; then

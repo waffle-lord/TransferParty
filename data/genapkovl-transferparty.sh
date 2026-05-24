@@ -73,14 +73,14 @@ echo "getting drives ready"
 bootpartition=$(df /boot | grep "/dev/sd*" | awk '{print $1}')
 bootdrive=$(echo ${bootpartition::-1})
 
-for p in $(ls /dev/sd??); do
+for p in "/dev/sd??"; do
 	if [[ "$p" =~ "$bootdrive" ]]; then
 		echo "   - skipping $p"
 		continue
 	fi
 
 	echo " +++ mounting $p ..."
-	partitionName=$(echo ${$p##*/})
+	partitionName=$(echo ${p##*/})
 	mkdir "/mnt/TransferParty/$partitionName"
 	mount "$p" "/mnt/TransferParty/$partitionName"
 done

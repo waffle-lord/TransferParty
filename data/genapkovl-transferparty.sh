@@ -72,7 +72,7 @@ cd /mnt/TransferParty
 # mount all the drives to our party folder, excluding our boot drive
 echo "getting drives ready"
 
-for p in "/dev/sd??"; do
+for p in /dev/sd??; do
 	echo " +++ mounting $p ..."
 	partitionName=${p##*/}
 	mkdir "/mnt/TransferParty/$partitionName"

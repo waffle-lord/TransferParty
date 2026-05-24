@@ -58,8 +58,34 @@ makefile root:root 0644 "$tmp"/etc/motd <<EOF
 EOF
 
 makefile root:root 0644 "$tmp"/etc/profile <<EOF
-cd /
+# setup mount area
+mkdir /mnt/TransferParty
+cd /mnt/TransferParty
+
+# mount all the drives to our party folder, excluding our boot drive
+echo "getting drives ready"
+bootpartition=$(df /boot | grep "/dev/sd*" | awk '{print $1}')
+bootdrive=$(echo ${bootparition::-1})
+
+for p in $(ls /dev/sd??); do
+	if [[ "$p" =~ "$bootdrive" ]]; then
+		echo "   - skipping $p"
+		continue
+	fi
+
+	echo " +++ mounting $p ..."
+	partitionName=$(echo ${$p##*/})
+	mkdir /mnt/TransferParty/$partitionName
+	mount $p /mnt/TransferParty/$partitionName
+
+# run copyparty after 5 seconds
+echo "Starting the party in 5 seconds ..."
+echo "You can end the party with ctrl+c"
+sleep 5s
 python3 /etc/copyparty-sfx.py
+
+# shutdown when copyparty ends
+poweroff
 EOF
 
 makefile root:root 0644 "$tmp"/etc/inittab <<EOF

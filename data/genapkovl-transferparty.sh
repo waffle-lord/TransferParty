@@ -49,6 +49,13 @@ py3-pillow
 ffmpeg
 agetty
 wget
+btrfs-progs
+dosfstools
+e2fsprogs
+exfatprogs
+hfsprogs
+ntfs-3g-progs
+xfsprogs
 EOF
 
 # just to ignore motd output

@@ -49,6 +49,8 @@ py3-pillow
 ffmpeg
 agetty
 wget
+ntfs-3g
+hfsfuse
 EOF
 
 # just to ignore motd output

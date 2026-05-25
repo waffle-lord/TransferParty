@@ -4,10 +4,10 @@ profile_transferparty() {
 	title="TransferParty"
 	desc="Live ISO for transfering data using CopyParty"
 	arch="x86 x86_64"
-	kernel_addons="xtables-addons zfs btrfs e2fs exfat hfs ntfs-3g xfs"
+	kernel_addons="xtables-addons zfs"
 	boot_addons="amd-ucode intel-ucode"
 	initrd_ucode="/boot/amd-ucode.img /boot/intel-ucode.img"
-	apks="$apks python3 py3-pillow ffmpeg agetty wget"
+	apks="$apks python3 py3-pillow ffmpeg agetty wget ntfs-3g hfsfuse"
 
 	local _k _a
 	for _k in $kernel_flavors; do

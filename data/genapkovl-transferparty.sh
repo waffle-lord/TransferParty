@@ -51,9 +51,8 @@ agetty
 wget
 EOF
 
+# just to ignore motd output
 makefile root:root 0644 "$tmp"/etc/motd <<EOF
-
-> > > Welcome to < < <
 
 EOF
 
@@ -62,6 +61,9 @@ makefile root:root 0644 "$tmp"/etc/profile <<EOF
 acc="\033[0;36m"
 gray="\033[1;30m"
 reset="\033[0m"
+
+echo -e "\${gray}> > > \${acc}Welcome to \${gray}< < <\${reset}"
+echo ""
 echo -e "\${acc}████████\${gray}╗\${acc}██████\${gray}╗  \${acc}█████\${gray}╗ \${acc}███\${gray}╗   \${acc}██\${gray}╗\${acc}███████\${gray}╗\${acc}███████\${gray}╗\${acc}███████\${gray}╗\${acc}██████\${gray}╗ \${acc}██████\${gray}╗  \${acc}█████\${gray}╗ \${acc}██████\${gray}╗ \${acc}████████\${gray}╗\${acc}██\${gray}╗   \${acc}██\${gray}╗\${reset}"
 echo -e "\${gray}╚══\${acc}██\${gray}╔══╝\${acc}██\${gray}╔══\${acc}██\${gray}╗\${acc}██\${gray}╔══\${acc}██\${gray}╗\${acc}████\${gray}╗  \${acc}██\${gray}║\${acc}██\${gray}╔════╝\${acc}██\${gray}╔════╝\${acc}██\${gray}╔════╝\${acc}██\${gray}╔══\${acc}██\${gray}╗\${acc}██\${gray}╔══\${acc}██\${gray}╗\${acc}██\${gray}╔══\${acc}██\${gray}╗\${acc}██\${gray}╔══\${acc}██\${gray}╗╚══\${acc}██\${gray}╔══╝╚\${acc}██\${gray}╗ \${acc}██\${gray}╔╝\${reset}"
 echo -e "   \${acc}██\${gray}║   \${acc}██████\${gray}╔╝\${acc}███████\${gray}║\${acc}██\${gray}╔\${acc}██\${gray}╗ \${acc}██\${gray}║\${acc}███████\${gray}╗\${acc}█████\${gray}╗  \${acc}█████\${gray}╗  \${acc}██████\${gray}╔╝\${acc}██████\${gray}╔╝\${acc}███████\${gray}║\${acc}██████\${gray}╔╝   \${acc}██\${gray}║    ╚\${acc}████\${gray}╔╝ \${reset}"

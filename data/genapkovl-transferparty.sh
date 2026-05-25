@@ -73,10 +73,10 @@ cd /mnt/TransferParty
 echo "getting drives ready"
 
 for p in /dev/sd??; do
-	echo " +++ mounting $p ..."
-	partitionName=${p##*/}
-	mkdir "/mnt/TransferParty/$partitionName"
-	mount "$p" "/mnt/TransferParty/$partitionName"
+	echo " +++ mounting \$p ..."
+	partitionName=\${p##*/}
+	mkdir "/mnt/TransferParty/\$partitionName"
+	mount "\$p" "/mnt/TransferParty/\$partitionName"
 done
 
 # run copyparty after 5 seconds

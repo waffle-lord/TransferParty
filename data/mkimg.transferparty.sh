@@ -1,12 +1,8 @@
 profile_transferparty() {
-	profile_standard
+	profile_extended
 	profile_abbrev="transferparty"
 	title="TransferParty"
 	desc="Live ISO for transfering data using CopyParty"
-	arch="x86 x86_64"
-	kernel_addons="xtables-addons zfs"
-	boot_addons="amd-ucode intel-ucode"
-	initrd_ucode="/boot/amd-ucode.img /boot/intel-ucode.img"
 	apks="$apks python3 py3-pillow ffmpeg agetty wget ntfs-3g hfsfuse"
 
 	local _k _a
@@ -16,6 +12,6 @@ profile_transferparty() {
 			apks="$apks $_a-$_k"
 		done
 	done
-	apks="$apks linux-firmware"
+	
   apkovl="aports/scripts/genapkovl-transferparty.sh"
 }

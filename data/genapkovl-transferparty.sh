@@ -173,15 +173,15 @@ cd /mnt/TransferParty
 # mount all the drives to our party folder, excluding our boot drive
 echo "getting drives ready"
 
-function join_by { local IFS="$1"; shift; echo "$*"; }
+function join_by { local IFS="\$1"; shift; echo "$*"; }
 
-exclude=$(lsblk --list --noheadings --output maj,mountpoint | awk '$2 != "" {print $1}')
+exclude=\$(lsblk --list --noheadings --output maj,mountpoint | awk '\$2 != "" {print \$1}')
 exclude="\$exclude 1"
-exclude=$(join_by , \$exclude)
+exclude=\$(join_by , \$exclude)
 
 echo " --- excluding \$exclude"
 
-partitions=$(lsblk --list --output name,partn --noheadings --exclude \$exclude | awk '$2 == "" {print $1}')
+partitions=\$(lsblk --list --output name,partn --noheadings --exclude \$exclude | awk '\$2 == "" {print \$1}')
 
 for p in \$partitions; do
 	echo " +++ mounting \$p ..."

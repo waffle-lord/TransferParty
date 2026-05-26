@@ -173,11 +173,18 @@ cd /mnt/TransferParty
 # mount all the drives to our party folder, excluding our boot drive
 echo "getting drives ready"
 
-for p in /dev/sd??; do
+function join_by { local IFS="$1"; shift; echo "$*"; }
+
+exclude=$(lsblk --list --noheadings --output maj,mountpoint | awk '$2 != "" {print $1}'
+exclude="$exclude 1"
+exclude=$(join_by , $exclude)
+
+partitions=$(lsblk --list --output name,partn --noheadings --exclude $exclude | awk '$2 == "" {print $1}')
+
+for p in $partitions; do
 	echo " +++ mounting \$p ..."
-	partitionName=\${p##*/}
-	mkdir "/mnt/TransferParty/\$partitionName"
-	mount "\$p" "/mnt/TransferParty/\$partitionName"
+	mkdir "/mnt/TransferParty/\$p"
+	mount "\$p" "/mnt/TransferParty/\$p"
 done
 
 # run copyparty after 5 seconds

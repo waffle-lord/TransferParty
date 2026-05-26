@@ -173,7 +173,7 @@ cd /mnt/TransferParty
 # mount all the drives to our party folder, excluding our boot drive
 echo "getting drives ready"
 
-function join_by { local IFS="\$1"; shift; echo "$*"; }
+function join_by { local IFS="\$1"; shift; echo "\$*"; }
 
 exclude=\$(lsblk --list --noheadings --output maj,mountpoint | awk '\$2 != "" {print \$1}')
 exclude="\$exclude 1"

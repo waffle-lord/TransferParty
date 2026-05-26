@@ -179,6 +179,8 @@ exclude=$(lsblk --list --noheadings --output maj,mountpoint | awk '$2 != "" {pri
 exclude="$exclude 1"
 exclude=$(join_by , $exclude)
 
+echo " --- excluding $exclude"
+
 partitions=$(lsblk --list --output name,partn --noheadings --exclude $exclude | awk '$2 == "" {print $1}')
 
 for p in $partitions; do

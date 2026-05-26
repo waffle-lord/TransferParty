@@ -181,7 +181,7 @@ exclude=\$(join_by , \$exclude)
 
 echo " --- excluding \$exclude"
 
-partitions=\$(lsblk --list --output name,partn --noheadings --exclude \$exclude | awk '\$2 == "" {print \$1}')
+partitions=\$(lsblk --list --output name,partn --noheadings --exclude \$exclude | awk '\$2 != "" {print \$1}')
 
 for p in \$partitions; do
 	echo " +++ mounting \$p ..."

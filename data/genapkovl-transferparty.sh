@@ -175,7 +175,7 @@ echo "getting drives ready"
 
 function join_by { local IFS="$1"; shift; echo "$*"; }
 
-exclude=$(lsblk --list --noheadings --output maj,mountpoint | awk '$2 != "" {print $1}'
+exclude=$(lsblk --list --noheadings --output maj,mountpoint | awk '$2 != "" {print $1}')
 exclude="$exclude 1"
 exclude=$(join_by , $exclude)
 

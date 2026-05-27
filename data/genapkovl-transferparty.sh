@@ -37,6 +37,9 @@ makefile root:root 0644 "$tmp"/etc/network/interfaces <<EOF
 auto lo
 iface lo inet loopback
 
+auto wlan0
+iface wlan0 inet dhcp
+
 auto eth0
 iface eth0 inet dhcp
 EOF
@@ -119,7 +122,6 @@ tinyproxy
 unbound
 wireguard-tools
 wireless-tools
-wpa_supplicant
 zonenotify
 btrfs-progs
 cksfv

@@ -3,7 +3,7 @@ profile_transferparty() {
 	profile_abbrev="transferparty"
 	title="TransferParty"
 	desc="Live ISO for transfering data using CopyParty"
-	apks="$apks python3 py3-pillow ffmpeg agetty wget ntfs-3g hfsfuse"
+	apks="$apks python3 py3-pillow ffmpeg agetty wget ntfs-3g hfsfuse impala"
 
 	local _k _a
 	for _k in $kernel_flavors; do

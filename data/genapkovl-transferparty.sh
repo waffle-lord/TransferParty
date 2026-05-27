@@ -51,7 +51,7 @@ agetty
 wget
 ntfs-3g
 hfsfuse
-
+impala
 coreutils
 ethtool
 hwids
@@ -182,6 +182,8 @@ exclude=\$(join_by , \$exclude)
 echo " --- excluding \$exclude"
 
 partitions=\$(lsblk --list --output name,partn --noheadings --exclude \$exclude | awk '\$2 != "" {print \$1}')
+
+sleep 2s
 
 for p in \$partitions; do
 	echo " +++ mounting \$p ..."

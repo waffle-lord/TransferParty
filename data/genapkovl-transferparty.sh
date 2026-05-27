@@ -44,6 +44,15 @@ auto eth0
 iface eth0 inet dhcp
 EOF
 
+mkdir -p "$tmp"/etc/iwd
+makefile root:root 0644 "$tmp"/etc/iwd/main.conf <<EOF
+[General]
+EnableNetworkConfiguration=True
+
+[Network]
+NameResolvingService=resolvconf
+EOF
+
 mkdir -p "$tmp"/etc/apk
 makefile root:root 0644 "$tmp"/etc/apk/world <<EOF
 alpine-base
@@ -56,6 +65,7 @@ ntfs-3g
 hfsfuse
 impala
 iwd
+openresolv
 coreutils
 ethtool
 hwids

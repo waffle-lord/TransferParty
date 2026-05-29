@@ -13,6 +13,5 @@ profile_transferparty() {
 		done
 	done
 	
-  apks="$apks linux-firmware"
   apkovl="aports/scripts/genapkovl-transferparty.sh"
 }
